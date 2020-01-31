@@ -1,56 +1,53 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
+  { href: "https://zeit.co/now", label: "ZEIT" },
+  { href: "https://github.com/zeit/next.js", label: "GitHub" }
 ].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
 
 const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
+  <nav className="navbar navbar-expand-lg">
+    <div className="container">
+      <a className="navbar-brand" href="#">
+        Container
+      </a>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExample07"
+        aria-controls="navbarsExample07"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
+      <div className="collapse navbar-collapse" id="navbarsExample07">
+        <ul className="navbar-nav ml-auto">
+          <Link href="/">
+            <li className="nav-item active">
+              <a className="nav-link" href="#">
+                Anasayfa
+              </a>
+            </li>
+          </Link>
+          <Link href="/blogs">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Blog
+              </a>
+            </li>
+          </Link>
+         
+        </ul>
+      </div>
+    </div>
   </nav>
-)
+);
 
-export default Nav
+export default Nav;
